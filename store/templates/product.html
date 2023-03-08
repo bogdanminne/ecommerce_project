@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title  %}
+Product
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row mt-5">
+        <div class="col-10 mx-auto col-md-6 my-3">
+            <img src="{% static 'img/product-2.png' %}" alt="">
+        </div>
+        <div class="col-10 mx-auto col-md-6 my-3">
+            <div>
+                <h1 class="product_title">Garbanzos</h1>
+                <h5 class="text-info font-italic mb-3">
+                    <span class = "mr-1">MXN</span>40
+                </h5>
+                <p class="product_description">Product Description</p>
+                <p class="text-justify product-text">Garbanzos deliciosos, llenos de amor y felizidad, con chile del que pica y limon</p>
+                <p class="text-justify product-text"><b>Out of stock</b></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
