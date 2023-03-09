@@ -19,3 +19,6 @@ def productPage(request, category_slug, product_slug):
         raise e
     return render(request, 'product.html', {'product': product})
 # Create your views here.
+
+def cart(request):
+    return render(request, 'cart.html')
