@@ -1,2 +1,2 @@
 # ecommerce_project
- Ecommer website for practice purposes
+ Ecommerce website - built for practice purposes - Python, Django, HTML, CSS and manual / automatic testing
