@@ -3,6 +3,11 @@ from .models import Category, Product, Cart, CartItem, Order, OrderItem
 from django.core.exceptions import ObjectDoesNotExist
 import stripe
 from django.conf import settings
+from django.contrib.auth.models import Group, User
+from .forms import SignUpForm
+
+
+from django.contrib.auth.decorators import login_required
 
 #Creating the views for different pages.
 def home(request, category_slug=None):
@@ -159,3 +164,15 @@ def thanks_page(request, order_id):
         customer_order = get_object_or_404(Order, id=order_id)
     return render(request, 'thankyou.html', {'customer_order': customer_order})
 
+def signupView(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            signup_user = User.objects.get(username=username)
+            customer_group = Group.objects.get(name='Customer')
+            customer_group.user_set.add(signup_user)
+    else:
+        form = SignUpForm()
+    return render(request, 'signup.html', {'form': form})
