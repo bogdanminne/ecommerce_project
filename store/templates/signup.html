@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block title  %}
     Create a New Account
@@ -18,11 +19,12 @@
                 <div class="col-9 col-sm-9 col-md-6 col-lg-5 mx-auto bg-light">
                     <br>
                     <p>Enter the following information to create a new account</p>
-                    <form action="post">
+                    <form method="post">
                         {% csrf_token %}
-                        <p>{{ form }}</p>
+                        <p>{{ form|crispy }}</p>
                         <button type="submit" name="button" class="btn btn-secondary">Sign Up</button>
                     </form>
+                    <br>
                 </div>
             </div>
         {% else %}
@@ -32,7 +34,7 @@
                     Your account has been successfully created
                 </h1>
                 <br>
-                <div>
+                <div class="container">
                     <p>
                         Dear customer,
                         <br>
