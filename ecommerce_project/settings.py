@@ -126,6 +126,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media')
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51MjzoWL2U783cC9Jb6QgHwjG7cWUuoXblNzaWlsNqhgGD0HMQ8OrQsH22o6i3FfHk7B1VY44MAYKJUWzNy1YD6lp00xagksJ0i'
+STRIPE_SECRET_KEY = 'sk_test_51MjzoWL2U783cC9JIuZO3rWjMzckoKNlKprxaXKwXsAQ28zynOcgBAGyNVunzDJDr1RpCcgXQP6Y6AWGQ4o93r3a00gwyB35W1'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
