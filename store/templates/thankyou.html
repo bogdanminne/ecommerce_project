@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title  %}
+    Gastronomia de Salamanca, Guanajuato tienda
+{% endblock %}
+
+{% block content %}
+
+    <div class="text-center">
+        <br>
+        <br>
+        <h1 class="text-center product_title">
+            Thanks for placing your order.
+        </h1>
+        <br>
+        <br>
+        <p>Your order number is: <b>{{customer_order.id}}</b></p>
+        <br>
+        <p>
+            We have received your order and will begin processing it right away. An email confirmation has been sent to you.
+            It contains details of the items that you have purchased.
+        </p>
+    </div>
+
+{% endblock %}
