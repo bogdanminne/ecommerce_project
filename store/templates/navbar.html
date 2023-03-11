@@ -55,11 +55,11 @@
 
     </ul>
 
-    <form class = "form-inline ml-3">
+    <form class = "form-inline ml-3" action="{% url 'search' %}", method="GET">
         <div class = "input-group">
-            <input type = "text" class = "form-control" placeholder = "search">
+            <input type = "text" name="title" class = "form-control" placeholder = "search">
             <div class = "input-group-append">
-                <button type = "button" class = "btn btn-warning" name = "button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button type = "submit" class = "btn btn-warning" name = "button"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </div>
     </form>
