@@ -7,6 +7,7 @@ from django.contrib.auth.models import Group, User
 from .forms import SignUpForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.decorators import login_required
 
@@ -199,4 +200,9 @@ def signoutView(request):
     return redirect('signin')
 
 
-
+@login_required(redirect_field_name='next', login_url='signin')
+def orderHistory(request):
+    if request.user.is_authenticated:
+        email = str(request.user.email)
+        order_details = Order.objects.filter(emailAddress=email)
+    return render(request, 'orders_list.html', {'order_details': order_details})
