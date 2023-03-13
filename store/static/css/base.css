@@ -94,3 +94,13 @@ cursor: pointer;
 input[type="submit"]:hover {
 background-color: #45a049;
 }
+
+main {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 50px;
+}
+
+section {
+	margin-bottom: 50px;
+}
