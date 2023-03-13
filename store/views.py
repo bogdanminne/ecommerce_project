@@ -8,6 +8,7 @@ from .forms import SignUpForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
 
 from django.contrib.auth.decorators import login_required
 
@@ -183,6 +184,11 @@ def signupView(request):
             signup_user = User.objects.get(username=username)
             customer_group = Group.objects.get(name='Customer')
             customer_group.user_set.add(signup_user)
+            subject = 'Welcome to Tienda de Salamanca, Guanajuato'
+            message = f'Hi {username}, thank you for registering in Tienda de Salamanca, Guanajuato. We wish you have a pleasant stay and shopping. Should you one day decide to visit Salamanca, Guanajuato, you will find the most beautiful place that you have ever been to. Enjoy the jewel that is Mexico.'
+            email_from = settings.EMAIL_HOST_USER
+            recipient_list = [request.user.email, ]
+            send_mail( subject, message, email_from, recipient_list )
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})

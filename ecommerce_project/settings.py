@@ -130,6 +130,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media')
 
+# Sending email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+
 STRIPE_PUBLISHABLE_KEY = 'pk_test_51MjzoWL2U783cC9Jb6QgHwjG7cWUuoXblNzaWlsNqhgGD0HMQ8OrQsH22o6i3FfHk7B1VY44MAYKJUWzNy1YD6lp00xagksJ0i'
 STRIPE_SECRET_KEY = 'sk_test_51MjzoWL2U783cC9JIuZO3rWjMzckoKNlKprxaXKwXsAQ28zynOcgBAGyNVunzDJDr1RpCcgXQP6Y6AWGQ4o93r3a00gwyB35W1'
 
